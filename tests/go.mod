@@ -1,4 +1,4 @@
-module github.com/cloudnationhq/terraform-azure-$ResourceName
+module github.com/cloudnationhq/terraform-azure-pim
 
 go 1.24.2
 
