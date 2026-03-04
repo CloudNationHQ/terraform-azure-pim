@@ -51,7 +51,7 @@ variable "management_policies" {
       require_ticket_info                                = optional(bool)
       require_multifactor_authentication                 = optional(bool)
       required_conditional_access_authentication_context = optional(bool)
-      require_approvals                                  = optional(bool)
+      require_approval                                   = optional(bool)
       maximum_duration                                   = optional(string)
       approval_stage = optional(object({
         primary_approver = map(object({
