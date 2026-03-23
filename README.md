@@ -223,10 +223,6 @@ For more information, please see our testing [guidelines](./TESTING.md)
 
 This module makes use of the AzureRM provider and is part of the PIM implementation for [Azure resources and roles](https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-deployment-plan#what-can-you-manage-in-pim).
 
-<!--
-For PIM for Entra ID groups, please make use of our [azuread (entra id) module](https://github.com/CloudNationHQ/terraform-azuread-pim) instead. PIM for Entra ID roles, is not yet supported natively through Terraform.
--->
-
 Full examples detailing most usages, along with integrations with dependency modules, are located in the examples directory.
 
 To update the module's documentation run `make doc`
