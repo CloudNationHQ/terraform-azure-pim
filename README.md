@@ -8,7 +8,7 @@ Capability to handle both eligible as active PIM role assignments.
 
 Support for management policy on a scope for a certain role.
 
-Lookup definition id's of custom and / or built-in RBAC-roles. 
+Lookup definition id's of custom and / or built-in RBAC-roles.
 
 Lookup of Azure AD (Entra ID) groups and users (approvers and PIM member users).
 
@@ -25,6 +25,8 @@ The following requirements are needed by this module:
 
 - <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) (~> 4.0)
 
+- <a name="requirement_time"></a> [time](#requirement\_time) (~> 0.13)
+
 ## Providers
 
 The following providers are used by this module:
@@ -33,7 +35,7 @@ The following providers are used by this module:
 
 - <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) (~> 4.0)
 
-- <a name="provider_time"></a> [time](#provider\_time)
+- <a name="provider_time"></a> [time](#provider\_time) (~> 0.13)
 
 ## Resources
 
@@ -85,7 +87,7 @@ map(object({
       require_ticket_info                                = optional(bool)
       require_multifactor_authentication                 = optional(bool)
       required_conditional_access_authentication_context = optional(bool)
-      require_approvals                                  = optional(bool)
+      require_approval                                   = optional(bool)
       maximum_duration                                   = optional(string)
       approval_stage = optional(object({
         primary_approver = map(object({
@@ -219,9 +221,7 @@ For more information, please see our testing [guidelines](./TESTING.md)
 
 ## Notes
 
-This module makes use of the AzureRM provider and is part of the PIM implementation for [Azure resources and roles](https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-deployment-plan#what-can-you-manage-in-pim). 
-
-For PIM for Entra ID groups, please make use of our [azuread (entra id) module](https://github.com/CloudNationHQ/terraform-azuread-pim) instead. PIM for Entra ID roles, is not yet supported natively through Terraform. 
+This module makes use of the AzureRM provider and is part of the PIM implementation for [Azure resources and roles](https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-deployment-plan#what-can-you-manage-in-pim).
 
 Full examples detailing most usages, along with integrations with dependency modules, are located in the examples directory.
 

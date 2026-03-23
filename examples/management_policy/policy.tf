@@ -21,7 +21,7 @@ locals {
         expire_after        = "P90D"
       }
       activation_rules = {
-        require_approvals                  = true
+        require_approval                   = true
         require_multifactor_authentication = true
         require_ticket_info                = false
         require_justification              = true
@@ -82,7 +82,7 @@ locals {
         expire_after        = "P30D"
       }
       activation_rules = {
-        require_approvals                  = true
+        require_approval                   = true
         require_multifactor_authentication = true
         require_ticket_info                = true
         require_justification              = true
