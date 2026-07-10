@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.2.0](https://github.com/CloudNationHQ/terraform-azure-pim/compare/v1.1.0...v1.2.0) (2026-07-10)
+
+
+### Features
+
+* **deps:** bump github.com/cloudnationhq/az-cn-go-validor in /tests ([#21](https://github.com/CloudNationHQ/terraform-azure-pim/issues/21)) ([8cc5910](https://github.com/CloudNationHQ/terraform-azure-pim/commit/8cc59108b6f0d726ac290c655653aae7b39181d2))
+* **deps:** bump github.com/cloudnationhq/az-cn-go-validor in /tests ([#23](https://github.com/CloudNationHQ/terraform-azure-pim/issues/23)) ([c08a2d1](https://github.com/CloudNationHQ/terraform-azure-pim/commit/c08a2d12adec748d54bd4262f2a661939e830d1c))
+* **deps:** bump golang.org/x/crypto from 0.45.0 to 0.52.0 in /tests ([#24](https://github.com/CloudNationHQ/terraform-azure-pim/issues/24)) ([1f9ff10](https://github.com/CloudNationHQ/terraform-azure-pim/commit/1f9ff10a77f607a66ce6808bd2438eed59587afd))
+
 ## [1.1.0](https://github.com/CloudNationHQ/terraform-azure-pim/compare/v1.0.1...v1.1.0) (2026-03-23)
 
 
