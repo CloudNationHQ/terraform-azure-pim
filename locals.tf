@@ -5,7 +5,7 @@ locals {
         for key_scope, scope in role.scopes :
         {
           key                 = "${replace(key_pim, " ", "-")}-${replace(key_role, " ", "-")}-${replace(key_scope, " ", "-")}"
-          key_role_definition = "${replace(key_role, " ", "-")}-${replace(key_scope, " ", "-")}"
+          key_role_definition = "${replace(key_role, " ", "-")}-${replace(scope, "/", "-")}"
           object_id           = try(pim.object_id, null)
           display_name        = pim.type == "Group" ? pim.display_name : null
           user_principal_name = pim.type == "User" ? pim.user_principal_name : null
@@ -46,7 +46,7 @@ locals {
         {
           key_policy                = key_policy
           key                       = "${replace(key_policy, " ", "-")}-${replace(key_role, " ", "-")}-${replace(key_scope, " ", "-")}"
-          key_role_definition       = "${replace(key_role, " ", "-")}-${replace(key_scope, " ", "-")}"
+          key_role_definition       = "${replace(key_role, " ", "-")}-${replace(scope, "/", "-")}"
           role_name                 = key_role
           role                      = role
           scope                     = scope
