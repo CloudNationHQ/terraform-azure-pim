@@ -1,5 +1,28 @@
 # Changelog
 
+## [2.0.0](https://github.com/CloudNationHQ/terraform-azure-pim/compare/v1.1.0...v2.0.0) (2026-09-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* Upgrade to azurerm v5 and module standards
+
+### Features
+
+* azurerm v5 upgrade ([6b8511e](https://github.com/CloudNationHQ/terraform-azure-pim/commit/6b8511eb8a4c5241bb8b4b6680c1ca95a11591e8))
+* **deps:** bump github.com/cloudnationhq/az-cn-go-validor in /tests ([#21](https://github.com/CloudNationHQ/terraform-azure-pim/issues/21)) ([8cc5910](https://github.com/CloudNationHQ/terraform-azure-pim/commit/8cc59108b6f0d726ac290c655653aae7b39181d2))
+* **deps:** bump github.com/cloudnationhq/az-cn-go-validor in /tests ([#23](https://github.com/CloudNationHQ/terraform-azure-pim/issues/23)) ([c08a2d1](https://github.com/CloudNationHQ/terraform-azure-pim/commit/c08a2d12adec748d54bd4262f2a661939e830d1c))
+* **deps:** bump golang.org/x/crypto from 0.45.0 to 0.52.0 in /tests ([#24](https://github.com/CloudNationHQ/terraform-azure-pim/issues/24)) ([1f9ff10](https://github.com/CloudNationHQ/terraform-azure-pim/commit/1f9ff10a77f607a66ce6808bd2438eed59587afd))
+* Update vars and docs ([545e8e7](https://github.com/CloudNationHQ/terraform-azure-pim/commit/545e8e72c58080849b30db0bd8e48965cff30f70))
+* Upgrade to azurerm v5 and module standards ([911e0f6](https://github.com/CloudNationHQ/terraform-azure-pim/commit/911e0f66650bd765f6459cff579c5c1df31598d2))
+
+
+### Bug Fixes
+
+* add collision example ([6f0a137](https://github.com/CloudNationHQ/terraform-azure-pim/commit/6f0a13754dd87ca178296cb1a936eb5bc34d9e08))
+* key role definitions by scope value (fixes [#25](https://github.com/CloudNationHQ/terraform-azure-pim/issues/25)) ([8276d23](https://github.com/CloudNationHQ/terraform-azure-pim/commit/8276d231b89643ec9da85225eb078a663787b615))
+* Update examples ([f268614](https://github.com/CloudNationHQ/terraform-azure-pim/commit/f268614879083e6a6869f10bbdcfee0c1133037d))
+
 ## [1.1.0](https://github.com/CloudNationHQ/terraform-azure-pim/compare/v1.0.1...v1.1.0) (2026-03-23)
 
 
