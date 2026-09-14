@@ -18,8 +18,9 @@ locals {
         }
       }
     }
-    # same role (Contributor) as group1 but granted at a single, differently-ordered
-    # scope, so role definitions must be keyed by scope value rather than list index
+    # same role (Contributor) as group1 but granted at a single, different scope, so
+    # role definition lookups must be keyed per principal to avoid colliding on the
+    # scope list index (see issue #25)
     group2 = {
       type            = "Group"
       assignment_type = "Active"

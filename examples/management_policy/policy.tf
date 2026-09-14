@@ -84,8 +84,9 @@ locals {
             module.rg.groups.test.id
           ]
         }
-        # same role (Contributor) as policy1 but at a single, differently-ordered
-        # scope, so role definitions must be keyed by scope value rather than list index
+        # same role (Contributor) as policy1 but at a single, different scope, so role
+        # definition lookups must be keyed per policy to avoid colliding on the scope
+        # list index (see issue #25)
         Contributor = {
           scopes = [
             module.rg.groups.test.id
