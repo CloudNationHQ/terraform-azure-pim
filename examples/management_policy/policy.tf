@@ -52,6 +52,25 @@ locals {
           }
           assignee_notifications = {
             additional_recipients = ["someone@example.com"]
+            default_recipients    = true
+            notification_level    = "All"
+          }
+        }
+        eligible_assignments = {
+          admin_notifications = {
+            default_recipients = true
+            notification_level = "Critical"
+          }
+          approver_notifications = {
+            additional_recipients = ["someone@example.com"]
+            default_recipients    = false
+            notification_level    = "Critical"
+          }
+        }
+        eligible_activations = {
+          assignee_notifications = {
+            additional_recipients = ["someone.else@example.com"]
+            default_recipients    = true
             notification_level    = "All"
           }
         }
@@ -65,9 +84,11 @@ locals {
             module.rg.groups.test.id
           ]
         }
+        # same role (Contributor) as policy1 but at a single, different scope, so role
+        # definition lookups must be keyed per policy to avoid colliding on the scope
+        # list index (see issue #25)
         Contributor = {
           scopes = [
-            module.rg.groups.demo.id,
             module.rg.groups.test.id
           ]
         }

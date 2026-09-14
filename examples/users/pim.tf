@@ -23,6 +23,10 @@ locals {
       assignment_type = "Active"
       mail_nickname   = "user2_pim"
       justification   = "Justification for PIM assignment"
+      ticket = {
+        number = "42"
+        system = "example ticket system"
+      }
       schedule = {
         expiration = {
           duration_hours = 24

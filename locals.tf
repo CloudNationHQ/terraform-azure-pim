@@ -5,7 +5,7 @@ locals {
         for key_scope, scope in role.scopes :
         {
           key                 = "${replace(key_pim, " ", "-")}-${replace(key_role, " ", "-")}-${replace(key_scope, " ", "-")}"
-          key_role_definition = "${replace(key_role, " ", "-")}-${replace(key_scope, " ", "-")}"
+          key_role_definition = "${replace(key_pim, " ", "-")}-${replace(key_role, " ", "-")}-${replace(key_scope, " ", "-")}"
           object_id           = try(pim.object_id, null)
           display_name        = pim.type == "Group" ? pim.display_name : null
           user_principal_name = pim.type == "User" ? pim.user_principal_name : null
@@ -15,8 +15,9 @@ locals {
           role_name           = key_role
           key_pim             = key_pim
           schedule            = pim.schedule
+          ticket              = pim.ticket
           condition           = pim.condition
-          condition_version   = try(pim.condition, null) != null ? 2.0 : null
+          condition_version   = pim.condition != null ? pim.condition_version : null
           scope               = scope
           justification       = pim.justification
         }
@@ -46,7 +47,7 @@ locals {
         {
           key_policy                = key_policy
           key                       = "${replace(key_policy, " ", "-")}-${replace(key_role, " ", "-")}-${replace(key_scope, " ", "-")}"
-          key_role_definition       = "${replace(key_role, " ", "-")}-${replace(key_scope, " ", "-")}"
+          key_role_definition       = "${replace(key_policy, " ", "-")}-${replace(key_role, " ", "-")}-${replace(key_scope, " ", "-")}"
           role_name                 = key_role
           role                      = role
           scope                     = scope

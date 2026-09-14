@@ -18,6 +18,9 @@ locals {
         }
       }
     }
+    # same role (Contributor) as group1 but granted at a single, different scope, so
+    # role definition lookups must be keyed per principal to avoid colliding on the
+    # scope list index (see issue #25)
     group2 = {
       type            = "Group"
       assignment_type = "Active"
@@ -31,7 +34,6 @@ locals {
       roles = {
         Contributor = {
           scopes = [
-            module.rg.groups.demo.id,
             module.rg.groups.test.id
           ]
         }
