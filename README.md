@@ -23,9 +23,7 @@ The following requirements are needed by this module:
 
 - <a name="requirement_azuread"></a> [azuread](#requirement\_azuread) (~> 3.0)
 
-- <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) (~> 4.0)
-
-- <a name="requirement_time"></a> [time](#requirement\_time) (~> 0.13)
+- <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) (~> 5.0)
 
 ## Providers
 
@@ -33,24 +31,21 @@ The following providers are used by this module:
 
 - <a name="provider_azuread"></a> [azuread](#provider\_azuread) (~> 3.0)
 
-- <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) (~> 4.0)
-
-- <a name="provider_time"></a> [time](#provider\_time) (~> 0.13)
+- <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) (~> 5.0)
 
 ## Resources
 
 The following resources are used by this module:
 
-- [azurerm_pim_active_role_assignment.main](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/pim_active_role_assignment) (resource)
-- [azurerm_pim_eligible_role_assignment.main](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/pim_eligible_role_assignment) (resource)
-- [azurerm_role_management_policy.main](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_management_policy) (resource)
-- [time_static.start_date_time](https://registry.terraform.io/providers/hashicorp/time/latest/docs/resources/static) (resource)
+- [azurerm_pim_active_role_assignment.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/pim_active_role_assignment) (resource)
+- [azurerm_pim_eligible_role_assignment.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/pim_eligible_role_assignment) (resource)
+- [azurerm_role_management_policy.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_management_policy) (resource)
 - [azuread_group.approver](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/group) (data source)
-- [azuread_group.main](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/group) (data source)
+- [azuread_group.this](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/group) (data source)
 - [azuread_user.approver](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/user) (data source)
-- [azuread_user.main](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/user) (data source)
-- [azurerm_client_config.current](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/client_config) (data source)
-- [azurerm_role_definition.default](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/role_definition) (data source)
+- [azuread_user.this](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/user) (data source)
+- [azurerm_client_config.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/client_config) (data source)
+- [azurerm_role_definition.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/role_definition) (data source)
 
 ## Required Inputs
 
@@ -86,7 +81,7 @@ map(object({
       require_justification                              = optional(bool)
       require_ticket_info                                = optional(bool)
       require_multifactor_authentication                 = optional(bool)
-      required_conditional_access_authentication_context = optional(bool)
+      required_conditional_access_authentication_context = optional(string)
       require_approval                                   = optional(bool)
       maximum_duration                                   = optional(string)
       approval_stage = optional(object({
@@ -103,51 +98,51 @@ map(object({
       active_assignments = optional(object({
         admin_notifications = optional(object({
           additional_recipients = optional(list(string))
-          default_recipients    = optional(bool, true)
+          default_recipients    = bool
           notification_level    = string # "All" or "Critical"
         }))
         approver_notifications = optional(object({
           additional_recipients = optional(list(string))
-          default_recipients    = optional(bool, true)
+          default_recipients    = bool
           notification_level    = string # "All" or "Critical"
         }))
         assignee_notifications = optional(object({
           additional_recipients = optional(list(string))
-          default_recipients    = optional(bool, true)
+          default_recipients    = bool
           notification_level    = string # "All" or "Critical"
         }))
       }))
       eligible_assignments = optional(object({
         admin_notifications = optional(object({
           additional_recipients = optional(list(string))
-          default_recipients    = optional(bool, true)
+          default_recipients    = bool
           notification_level    = string # "All" or "Critical"
         }))
         approver_notifications = optional(object({
           additional_recipients = optional(list(string))
-          default_recipients    = optional(bool, true)
+          default_recipients    = bool
           notification_level    = string # "All" or "Critical"
         }))
         assignee_notifications = optional(object({
           additional_recipients = optional(list(string))
-          default_recipients    = optional(bool, true)
+          default_recipients    = bool
           notification_level    = string # "All" or "Critical"
         }))
       }))
       eligible_activations = optional(object({
         admin_notifications = optional(object({
           additional_recipients = optional(list(string))
-          default_recipients    = optional(bool, true)
+          default_recipients    = bool
           notification_level    = string # "All" or "Critical"
         }))
         approver_notifications = optional(object({
           additional_recipients = optional(list(string))
-          default_recipients    = optional(bool, true)
+          default_recipients    = bool
           notification_level    = string # "All" or "Critical"
         }))
         assignee_notifications = optional(object({
           additional_recipients = optional(list(string))
-          default_recipients    = optional(bool, true)
+          default_recipients    = bool
           notification_level    = string # "All" or "Critical"
         }))
       }))
@@ -175,8 +170,8 @@ map(object({
       scopes = list(string) # List of scopes, can be subscriptions, resource groups, management groups
     }))
     justification     = optional(string, "No justification provided")
-    condition         = optional(string, null)
-    condition_version = optional(number, 2.0) # Only supported value is 2.0, required if condition is set
+    condition         = optional(string)
+    condition_version = optional(string, "2.0") # Only supported value is "2.0", required if condition is set
     schedule = optional(object({
       start_date_time = optional(string)
       expiration = optional(object({

@@ -52,6 +52,25 @@ locals {
           }
           assignee_notifications = {
             additional_recipients = ["someone@example.com"]
+            default_recipients    = true
+            notification_level    = "All"
+          }
+        }
+        eligible_assignments = {
+          admin_notifications = {
+            default_recipients = true
+            notification_level = "Critical"
+          }
+          approver_notifications = {
+            additional_recipients = ["someone@example.com"]
+            default_recipients    = false
+            notification_level    = "Critical"
+          }
+        }
+        eligible_activations = {
+          assignee_notifications = {
+            additional_recipients = ["someone.else@example.com"]
+            default_recipients    = true
             notification_level    = "All"
           }
         }

@@ -15,8 +15,9 @@ locals {
           role_name           = key_role
           key_pim             = key_pim
           schedule            = pim.schedule
+          ticket              = pim.ticket
           condition           = pim.condition
-          condition_version   = try(pim.condition, null) != null ? 2.0 : null
+          condition_version   = pim.condition != null ? pim.condition_version : null
           scope               = scope
           justification       = pim.justification
         }

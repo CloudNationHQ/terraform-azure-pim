@@ -11,8 +11,8 @@ variable "pim_assignments" {
       scopes = list(string) # List of scopes, can be subscriptions, resource groups, management groups
     }))
     justification     = optional(string, "No justification provided")
-    condition         = optional(string, null)
-    condition_version = optional(number, 2.0) # Only supported value is 2.0, required if condition is set
+    condition         = optional(string)
+    condition_version = optional(string, "2.0") # Only supported value is "2.0", required if condition is set
     schedule = optional(object({
       start_date_time = optional(string)
       expiration = optional(object({
@@ -50,7 +50,7 @@ variable "management_policies" {
       require_justification                              = optional(bool)
       require_ticket_info                                = optional(bool)
       require_multifactor_authentication                 = optional(bool)
-      required_conditional_access_authentication_context = optional(bool)
+      required_conditional_access_authentication_context = optional(string)
       require_approval                                   = optional(bool)
       maximum_duration                                   = optional(string)
       approval_stage = optional(object({
@@ -67,51 +67,51 @@ variable "management_policies" {
       active_assignments = optional(object({
         admin_notifications = optional(object({
           additional_recipients = optional(list(string))
-          default_recipients    = optional(bool, true)
+          default_recipients    = bool
           notification_level    = string # "All" or "Critical"
         }))
         approver_notifications = optional(object({
           additional_recipients = optional(list(string))
-          default_recipients    = optional(bool, true)
+          default_recipients    = bool
           notification_level    = string # "All" or "Critical"
         }))
         assignee_notifications = optional(object({
           additional_recipients = optional(list(string))
-          default_recipients    = optional(bool, true)
+          default_recipients    = bool
           notification_level    = string # "All" or "Critical"
         }))
       }))
       eligible_assignments = optional(object({
         admin_notifications = optional(object({
           additional_recipients = optional(list(string))
-          default_recipients    = optional(bool, true)
+          default_recipients    = bool
           notification_level    = string # "All" or "Critical"
         }))
         approver_notifications = optional(object({
           additional_recipients = optional(list(string))
-          default_recipients    = optional(bool, true)
+          default_recipients    = bool
           notification_level    = string # "All" or "Critical"
         }))
         assignee_notifications = optional(object({
           additional_recipients = optional(list(string))
-          default_recipients    = optional(bool, true)
+          default_recipients    = bool
           notification_level    = string # "All" or "Critical"
         }))
       }))
       eligible_activations = optional(object({
         admin_notifications = optional(object({
           additional_recipients = optional(list(string))
-          default_recipients    = optional(bool, true)
+          default_recipients    = bool
           notification_level    = string # "All" or "Critical"
         }))
         approver_notifications = optional(object({
           additional_recipients = optional(list(string))
-          default_recipients    = optional(bool, true)
+          default_recipients    = bool
           notification_level    = string # "All" or "Critical"
         }))
         assignee_notifications = optional(object({
           additional_recipients = optional(list(string))
-          default_recipients    = optional(bool, true)
+          default_recipients    = bool
           notification_level    = string # "All" or "Critical"
         }))
       }))

@@ -7,7 +7,7 @@ module "naming" {
 
 module "rg" {
   source  = "cloudnationhq/rg/azure"
-  version = "~> 2.0"
+  version = "~> 3.0"
 
   groups = {
     demo = {
@@ -22,9 +22,8 @@ module "rg" {
 }
 
 module "pim" {
-  # source  = "cloudnationhq/pim/azure"
-  # version = "~> 1.0"
-  source = "../../"
+  source  = "cloudnationhq/pim/azure"
+  version = "~> 2.0"
 
   pim_assignments = local.pim_assignments
 }
