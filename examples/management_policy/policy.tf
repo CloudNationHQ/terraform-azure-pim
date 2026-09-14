@@ -84,9 +84,10 @@ locals {
             module.rg.groups.test.id
           ]
         }
+        # same role (Contributor) as policy1 but at a single, differently-ordered
+        # scope, so role definitions must be keyed by scope value rather than list index
         Contributor = {
           scopes = [
-            module.rg.groups.demo.id,
             module.rg.groups.test.id
           ]
         }

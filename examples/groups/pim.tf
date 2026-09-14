@@ -18,6 +18,8 @@ locals {
         }
       }
     }
+    # same role (Contributor) as group1 but granted at a single, differently-ordered
+    # scope, so role definitions must be keyed by scope value rather than list index
     group2 = {
       type            = "Group"
       assignment_type = "Active"
@@ -31,7 +33,6 @@ locals {
       roles = {
         Contributor = {
           scopes = [
-            module.rg.groups.demo.id,
             module.rg.groups.test.id
           ]
         }
