@@ -53,8 +53,7 @@ resource "azurerm_pim_active_role_assignment" "this" {
     pim.key => pim if pim.assignment_type == "Active"
   }
 
-  principal_id = (each.value.object_id != null ? each.value.object_id : each.value.type == "User" ?
-  data.azuread_user.this[each.value.key].object_id : data.azuread_group.this[each.value.key].object_id)
+  principal_id       = (each.value.object_id != null ? each.value.object_id : each.value.type == "User" ? data.azuread_user.this[each.value.key].object_id : data.azuread_group.this[each.value.key].object_id)
   scope              = each.value.scope != null ? each.value.scope : data.azurerm_client_config.this.subscription_id
   role_definition_id = data.azurerm_role_definition.this[each.value.key_role_definition].role_definition_resource_id
   justification      = each.value.justification
