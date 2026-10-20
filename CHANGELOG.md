@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/CloudNationHQ/terraform-azure-pim/compare/v2.0.0...v2.1.0) (2026-10-20)
+
+
+### Features
+
+* **deps:** bump github.com/klauspost/compress in /tests ([#28](https://github.com/CloudNationHQ/terraform-azure-pim/issues/28)) ([495bd54](https://github.com/CloudNationHQ/terraform-azure-pim/commit/495bd54206e03817064cce53a0c22c951168e7bc))
+
 ## [2.0.0](https://github.com/CloudNationHQ/terraform-azure-pim/compare/v1.1.0...v2.0.0) (2026-09-14)
 
 
