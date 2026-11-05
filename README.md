@@ -220,7 +220,7 @@ This module makes use of the AzureRM provider and is part of the PIM implementat
 
 Full examples detailing most usages, along with integrations with dependency modules, are located in the examples directory.
 
-To update the module's documentation run `make doc`
+To update the module's documentation run `make docs`
 
 ## Authors
 
